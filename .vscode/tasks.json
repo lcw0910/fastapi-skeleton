@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "실행: FastAPI",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/python -m app.main",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "실행: Docker Compose",
+            "type": "shell",
+            "command": "docker compose up -d",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "중지: Docker Compose",
+            "type": "shell",
+            "command": "docker compose down",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "마이그레이션: 생성",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/alembic revision --autogenerate -m 'migration'",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "마이그레이션: 적용",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/alembic upgrade head",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "테스트: 전체",
+            "type": "shell",
+            "command": "${workspaceFolder}/venv/bin/pytest -xvs tests/",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
