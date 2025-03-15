@@ -7,7 +7,7 @@ reload 옵션이 항상 활성화되어 있어 코드 변경 시 자동으로 �
 
 import os
 import uvicorn
-from dotenv import load_dot
+from dotenv import load_dotenv
 
 # 환경 변수 로드
 load_dotenv()
